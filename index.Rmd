@@ -1,15 +1,15 @@
 ---
 title: "Francisco Guzmán"
-image: "frank.jpg"
+image: "images/perfil.jpg"
 links:
-  - label: LinkedIn
-    url: "https://linkedin.com/"
-  - label: Twitter
-    url: "https://twitter.com/"
-  - label: GitHub
-    url: "https://github.com/"
-  - label: Email
-    url: "mailto:email@email.com"
+#  - label: '<i class="fab fa-twitter"></i> Twitter'
+#    url: "https://twitter.com/PipingHotData"
+  - label: '<i class="fab fa-github"></i> GitHub'
+    url: 'https://github.com/fguzmanbe target="_blank"'
+#  - label: '<i class="fab fa-linkedin"></i> LinkedIn'
+#    url: "https://www.linkedin.com/in/francisco-guzm%C3%A1n-a99aa529a/"
+  - label: '<i class="fas fa-envelope"></i> Contact Me'
+    url: "mailto:fguzmanbe@gmail.com" 
 output:
   postcards::trestles
 site: distill::distill_website
