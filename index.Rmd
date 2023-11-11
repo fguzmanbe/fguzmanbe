@@ -26,16 +26,14 @@ Times Magazine.
 
 ## Education
 
-**Massachusetts Institute of Technology** | Cambridge, MA
+**University of Chile** | Santiago, Chile
 
-Ph.D. in Computer Science | September 2009 - May 2014
-
-**The University of California, Berkeley** | Berkeley, CA
-
-B.S. in Computer Science | September 2005 - May 2009
+Business Engineering, BSc. in Economics | 2016 - 2021
 
 ## Experience
 
-**Google Brain** | Principal Investigator | January 2018 - Present
+**Servicio Nacional del Consumidor (SERNAC)** | Intern in Management Control and Process Improvement Unit | July 2020 - February 2021 | Santiago, Chile
 
-**Netflix** | Research Scientist | June 2014 - December 2017
+Support in the review and validation of indicators, review and editing of Service documentation and permanent collaboration in the area of User Satisfaction, where we worked with Power BI.
+
+

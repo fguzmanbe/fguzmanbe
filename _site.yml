@@ -3,6 +3,7 @@ title: "Portfolio"
 description: |
   Portfolio
 output_dir: "docs"
+theme: theme.css
 navbar:
   right:
     - text: "Home"
