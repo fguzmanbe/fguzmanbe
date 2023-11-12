@@ -8,6 +8,8 @@ navbar:
   right:
     - text: "About me"
       href: about.html
+    - text: "Projects"
+      href: projects.html
     - text: "Random"
       href: random.html
     - text: "Lessons"
