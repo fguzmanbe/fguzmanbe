@@ -15,25 +15,14 @@ output:
 site: distill::distill_website
 ---
  
-## Bio
+## More about me
 
-Frank Hermosillo studies neural networks and their applications at Google 
-Brain. His research focuses on differentiable network pruning approximation and 
-decentralized gradient inversion mechanics. He frequently collaborates with 
-researchers who study machine learning, computer vision, and cognitive science.
-His work has been featured in WIRED, The Atlantic, Newsweek, and The New York 
-Times Magazine.
+Hello! I'm Francisco, a passionate graduate in Business Engineering from the University of Chile in 2021. After dedicating that year to saving, I decided to embark on an exciting adventure in February of the following year, landing in beautiful Portugal.
 
-## Education
+My story in this land began as a volunteer in a hostel, and over time, I found my way working in the housekeeping area until October 2022. During this period, I had the opportunity to meet incredible people and gradually immerse myself in the rich Portuguese culture.
 
-**University of Chile** | Santiago, Chile
+In search of new challenges, I made the decision with a group of friends to move to Coímbra in October 2022, where I currently call home. Here, I took on the role of Customer Service Representative at Foundever for the Airbnb project, from December 2022 to October 2023.
 
-Business Engineering, BSc. in Economics | 2016 - 2021
+Now, with a stronger command of the language and greater stability in my new homeland, I have decided to embark on new horizons. My goal is to improve my quality of life and develop professionally.
 
-## Experience
-
-**Servicio Nacional del Consumidor (SERNAC)** | Intern in Management Control and Process Improvement Unit | July 2020 - February 2021 | Santiago, Chile
-
-Support in the review and validation of indicators, review and editing of Service documentation and permanent collaboration in the area of User Satisfaction, where we worked with Power BI.
-
-
+I am acutely aware of the challenges in demonstrating skills acquired from a foreign university. However, through this website, I hope to showcase not only some of the expertise I possess but, more importantly, my fervor for data. Join me on this digital journey as I navigate the intricacies of my experiences, skills, and a passion that transcends borders. Your presence here is truly appreciated!

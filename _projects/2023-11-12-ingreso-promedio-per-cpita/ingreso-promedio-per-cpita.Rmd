@@ -25,7 +25,7 @@ body {
 text-align: justify}
 </style>
 
-# Librerías
+# Libraries
 Note that by loading *tidyverse*, other packages are loaded as well. You can review them [here](https://www.tidyverse.org/packages/).
 
 ```{r}
@@ -43,11 +43,11 @@ library(Cairo)
 # Database
 ## Acquisition
 
-Go to [Lakner-Milanovic (2013) World Panel Income Distribution (LM-WPID)](https://www.worldbank.org/en/research/brief/World-Panel-Income-Distribution) and download the file in *STATA (.dta)* format.
+Go to <a href="https://www.worldbank.org/en/research/brief/World-Panel-Income-Distribution" target="_blank">Lakner-Milanovic (2013) World Panel Income Distribution (LM-WPID)</a> and download the file in *STATA (.dta)* format.
+
 
 ## Import
 Since the format is *.dta*, we use the **read_dta** command provided by the **haven** library.
-
 
 
 ```{r}
@@ -69,7 +69,7 @@ head(df)[c(1,8,9,11)]
 
 
 
-# Gráfico
+# Graph
 * The **filter()** command allows us to select the countries we want to graph.
 * The [pipe operator](https://rsanchezs.gitbooks.io/rprogramming/content/chapter9/pipeline.html) **%>%** allows us to perform multiple operations.
 * The **girafe()** command allows us to add a *tooltip*, making our graph more interactive. **geom_point_interactive()** should be added first.
