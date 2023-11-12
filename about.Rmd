@@ -1,10 +1,39 @@
 ---
-title: "About this site"
-description: |
-  Some additional details about the website
+title: "Francisco Guzmán"
+image: "images/perfil.jpg"
+links:
+#  - label: '<i class="fab fa-twitter"></i> Twitter'
+#    url: "https://twitter.com/PipingHotData"
+  - label: '<i class="fab fa-github"></i> GitHub'
+    url: 'https://github.com/fguzmanbe target="_blank"'
+#  - label: '<i class="fab fa-linkedin"></i> LinkedIn'
+#    url: "https://www.linkedin.com/in/francisco-guzm%C3%A1n-a99aa529a/"
+  - label: '<i class="fas fa-envelope"></i> Contact Me'
+    url: "mailto:fguzmanbe@gmail.com" 
+output:
+  postcards::trestles
+site: distill::distill_website
 ---
+ 
+## Bio
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+Frank Hermosillo studies neural networks and their applications at Google 
+Brain. His research focuses on differentiable network pruning approximation and 
+decentralized gradient inversion mechanics. He frequently collaborates with 
+researchers who study machine learning, computer vision, and cognitive science.
+His work has been featured in WIRED, The Atlantic, Newsweek, and The New York 
+Times Magazine.
+
+## Education
+
+**University of Chile** | Santiago, Chile
+
+Business Engineering, BSc. in Economics | 2016 - 2021
+
+## Experience
+
+**Servicio Nacional del Consumidor (SERNAC)** | Intern in Management Control and Process Improvement Unit | July 2020 - February 2021 | Santiago, Chile
+
+Support in the review and validation of indicators, review and editing of Service documentation and permanent collaboration in the area of User Satisfaction, where we worked with Power BI.
+
 

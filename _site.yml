@@ -6,7 +6,7 @@ output_dir: "docs"
 theme: theme.css
 navbar:
   right:
-    - text: "About"
+    - text: "About me"
       href: about.html
     - text: "Random"
       href: random.html
