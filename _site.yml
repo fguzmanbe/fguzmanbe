@@ -6,12 +6,12 @@ output_dir: "docs"
 theme: theme.css
 navbar:
   right:
+    - text: "Home"
+      href: index.html
     - text: "More about me"
       href: about.html
     - text: "Projects using R"
       href: projects.html
-    - text: "Random"
-      href: random.html
     - text: "Lessons"
       menu: 
         - text: "My 1st R Markdown Lesson"
