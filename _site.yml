@@ -6,8 +6,14 @@ output_dir: "docs"
 theme: theme.css
 navbar:
   right:
-    - text: "Home"
-      href: index.html
     - text: "About"
       href: about.html
+    - text: "Random"
+      href: random.html
+    - text: "Lessons"
+      menu: 
+        - text: "My 1st R Markdown Lesson"
+          href: rmarkdown1.html
+        - text: "Math Lesson"
+          href: math_lessons.html
 output: distill::distill_article
