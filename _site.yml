@@ -12,10 +12,10 @@ navbar:
       href: about.html
     - text: "Projects using R"
       href: projects.html
-    - text: "Lessons"
+    - text: "Miscellaneous"
       menu: 
-        - text: "My 1st R Markdown Lesson"
-          href: rmarkdown1.html
+        - text: "Travels"
+          href: travels.html
         - text: "Math Lesson"
           href: math_lessons.html
 output: distill::distill_article
