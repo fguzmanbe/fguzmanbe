@@ -14,8 +14,8 @@ navbar:
       href: projects.html
     - text: "Miscellaneous"
       menu: 
-        - text: "Travels"
-          href: travels.html
         - text: "Applications with R"
           href: applications.html
+        - text: "Travels"
+          href: travels.html
 output: distill::distill_article
