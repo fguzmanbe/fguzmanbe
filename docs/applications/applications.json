@@ -1,7 +1,7 @@
 [
   {
-    "path": "math/2023-11-12-boxplotpost/",
-    "title": "boxplot_post",
+    "path": "applications/2023-11-14-linear-regression/",
+    "title": "Linear Regression",
     "description": "A short description of the post.",
     "author": [
       {
@@ -9,11 +9,11 @@
         "url": {}
       }
     ],
-    "date": "2023-11-12",
+    "date": "2023-11-14",
     "categories": [],
     "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2023-11-12T13:40:16+00:00",
+    "last_modified": "2023-11-14T19:17:35+00:00",
     "input_file": {}
   }
 ]

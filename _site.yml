@@ -16,6 +16,6 @@ navbar:
       menu: 
         - text: "Travels"
           href: travels.html
-        - text: "Math Lesson"
-          href: math_lessons.html
+        - text: "Applications with R"
+          href: applications.html
 output: distill::distill_article
