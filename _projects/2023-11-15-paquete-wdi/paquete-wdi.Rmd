@@ -26,7 +26,7 @@ body {
 text-align: justify}
 </style>
 
-# Librerías 
+# Libraries 
 
 ```{r}
 library(WDI)
@@ -51,7 +51,7 @@ WDIsearch('gdp.*ppp.*constant')
 From the 5 options displayed in the result, for the purpose of this article, we'll go with number 4: *"GDP per capita, PPP (constant 2017 international $)"*.
 
 ## Download
-With the following command, we can retrieve the database and apply previous filters.
+With the following command, we can get the database and apply previous filters.
 
 ```{r}
 df <- WDI(
@@ -121,7 +121,7 @@ df %>%
 
 ```
 
-# Gráfico
+# Graph
 
 ```{r}
 my_palette = c("#DA0000", "#239f40", "#C4961A", "#CC79A7", "#C3D7A4", "#293352")
@@ -163,12 +163,12 @@ ggsave(g1, filename = "plot.eps", device = cairo_ps, dpi = 300,
 knitr::include_graphics("plot.png")
 ```
 
-# Código
+# Code
 
 ```{r ref.label=knitr::all_labels(), echo = T, eval = F, code_folding = TRUE}
 ```
 
-# Referencias
+# References
 
 * <a href="https://ggplot2.tidyverse.org/reference/index.html" target="_blank">ggplot2</a>
 * <a href="https://vincentarelbundock.github.io/WDI/" target="_blank">WDI</a>
