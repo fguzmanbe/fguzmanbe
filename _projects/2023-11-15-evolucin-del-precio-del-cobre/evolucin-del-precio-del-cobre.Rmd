@@ -45,10 +45,6 @@ library(Cairo)
 
 ```
 
-```{r}
-setwd("~/Todo R/My Blog/_posts/2021-04-08-evolucin-del-precio-del-cobre")
-```
-
 ## Import Database
 
 Make sure the database is saved in *.xlsx* format; it might be in a different format after downloading. After importing, we perform some modifications.
@@ -56,10 +52,10 @@ Make sure the database is saved in *.xlsx* format; it might be in a different fo
 ```{r, echo=TRUE}
 df <- read_excel("datos.xlsx")
 
-names(df)[1] <- "Fecha"
-names(df)[2] <- "Precio"
+names(df)[1] <- "Date"
+names(df)[2] <- "Price"
 
-df$Fecha <- as.Date(df$Fecha)
+df$Date <- as.Date(df$Date)
 
 ```
 
@@ -70,7 +66,7 @@ df$Fecha <- as.Date(df$Fecha)
 Start with a simple graph.
 
 ```{r, echo=TRUE}
-graph <- ggplot(data = df, aes(Fecha, Precio)) +
+graph <- ggplot(data = df, aes(Date, Price)) +
   geom_line(colour = "navy")
 graph
 ```
@@ -132,13 +128,13 @@ Identify a maximum point and place a label. Create *graph2* as this won't be add
 
 ```{r, echo=TRUE}
 pmax <- df %>% #maximum price
-  slice(which.max(Precio))
+  slice(which.max(Price))
 
 graph2 <- graph +
-  geom_point(data = pmax, aes(x = Fecha, y = Precio), col = "red",
+  geom_point(data = pmax, aes(x = Date, y = Price), col = "red",
              shape = 21, fill = NA, size = 4, stroke = 1.1) +
-  geom_text(data = pmax, aes(x = Fecha, y = Precio,
-                label = sprintf("%0.1f", round(Precio, digits = 3))),
+  geom_text(data = pmax, aes(x = Date, y = Price,
+                label = sprintf("%0.1f", round(Price, digits = 3))),
             size = 2.5, vjust = 0, hjust = -0.5)
 graph2
 ```
@@ -162,14 +158,14 @@ Finally, add a line with the current value of copper (the most recent in the dow
 
 ```{r, echo=TRUE}
 plast <- df %>% #most recent price
-  slice(which.max(Fecha))
+  slice(which.max(Date))
 
 graph <- graph +
-  geom_hline(yintercept = tail(df$Precio, n=1), linetype="dashed",
+  geom_hline(yintercept = tail(df$Price, n=1), linetype="dashed",
              color = "red", size = .5) +
   geom_text(data = plast,
-            aes(x = Fecha, y = Precio,
-                label = sprintf("%0.1f", round(Precio, digits = 3))), size = 3,
+            aes(x = Date, y = Price,
+                label = sprintf("%0.1f", round(Price, digits = 3))), size = 3,
             vjust = -.5, hjust = .5, col = "red")
 
 ```
@@ -189,9 +185,9 @@ knitr::include_graphics("plot.png")
 ```{r, echo=TRUE, fig.show='hide'}
 
 plast <- df %>% #most recent price
-  slice(which.max(Fecha))
+  slice(which.max(Date))
 
-ggplot(data = df, aes(Fecha, Precio)) +
+ggplot(data = df, aes(Date, Price)) +
   geom_line(colour = "navy")+ 
   labs(title = "Monthly Copper Nominal Price (¢/lb)",
                       subtitle = "Period 2000-2021",
@@ -208,11 +204,11 @@ ggplot(data = df, aes(Fecha, Precio)) +
            ymin = -Inf, ymax = Inf) +
   annotate(geom="text",x=as.Date("2011-08-01"),
            y=490, label="superciclo 09'-13'", fontface="plain", size=3) +
-  geom_hline(yintercept = tail(df$Precio, n=1), linetype="dashed",
+  geom_hline(yintercept = tail(df$Price, n=1), linetype="dashed",
              color = "red", size = .5) +
   geom_text(data = plast,
-            aes(x = Fecha, y = Precio,
-                label = sprintf("%0.1f", round(Precio, digits = 3))), size = 3,
+            aes(x = Date, y = Price,
+                label = sprintf("%0.1f", round(Price, digits = 3))), size = 3,
             vjust = -.5, hjust = .5, col = "red")
 ```
 
