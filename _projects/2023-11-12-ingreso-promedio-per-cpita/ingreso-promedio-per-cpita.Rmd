@@ -176,7 +176,7 @@ girafe(ggobj = g2, width_svg = 8, height_svg = 6)
 
 ```
 
-## Chile vs Suecia
+## Chile vs Sweden
 No data for Sweden in 1988.
 
 ```{r code_folding = TRUE}
@@ -321,12 +321,12 @@ knitr::include_graphics("captura.png")
 
 ```
 
-# Código
+# Code
 ```{r ref.label=knitr::all_labels(), echo = T, eval = F, code_folding = TRUE}
 
 ```
 
 # References 
-* [Lakner-Milanovic (2013) World Panel Income Distribution (LM-WPID)](https://www.worldbank.org/en/research/brief/World-Panel-Income-Distribution)
-* [Operador pipe](https://rsanchezs.gitbooks.io/rprogramming/content/chapter9/pipeline.html)
-* [tidyverse](https://www.tidyverse.org/packages/)
+* <a href="https://www.worldbank.org/en/research/brief/World-Panel-Income-Distribution" target="_blank">Lakner-Milanovic (2013) World Panel Income Distribution (LM-WPID)</a>
+* <a href="https://rsanchezs.gitbooks.io/rprogramming/content/chapter9/pipeline.html" target="_blank">Operador pipe</a>
+* <a href="https://www.tidyverse.org/packages/" target="_blank">tidyverse</a>
