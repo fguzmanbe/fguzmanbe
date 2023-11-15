@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to Statistical Learning"
 description: |
-  Embarking on an exploration into the realm of data science, I'm immersing myself in 'An Introduction to Statistical Learning with Applications in R' by James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013). Focused on chapters 3 and 4, I'll meticulously replicate exercises within this enlightening book to uncover the secrets concealed within datasets.
+  Embarking on an exploration into the realm of data science, I'm immersing myself in 'An Introduction to Statistical Learning with Applications in R' by James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013). Focused on chapters 3 and 4, I'll replicate exercises within this enlightening book to uncover the secrets concealed within datasets.
 author:
   - name: "Francisco Guzmán"
 date: 2023-11-14
@@ -13,6 +13,39 @@ output:
     toc_collapsed: TRUE
     toc_depth: 4
 ---
+
+<style>
+  body {
+    text-align: justify;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left; /* Adjust as needed */
+  }
+
+  /* For table of contents (toc) */
+  /* Assuming your toc class is toc */
+  .toc {
+    text-align: left; /* Adjust as needed */
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var toc = document.querySelector('.toc');
+  if (toc) {
+    var tocPosition = toc.offsetTop;
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > tocPosition) {
+        toc.style.position = 'sticky';
+        toc.style.top = '20px'; /* Adjust as needed */
+      } else {
+        toc.style.position = 'static';
+      }
+    });
+  }
+});
+</script>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -360,6 +393,4 @@ predict(glm.fit, newdata = data.frame(Lag1=c(1.2 ,1.5),
         type="response")
 
 ```
-### 4.6.3 Linear Discriminant Analysis
-
 
