@@ -27,7 +27,7 @@ text-align: justify}
 
 # Libraries 
   
-  ```{r}
+```{r}
 library(readxl)
 library(ggplot2)
 library(plotly)
