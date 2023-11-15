@@ -1,22 +1,365 @@
 ---
-title: "Linear Regression"
+title: "An Introduction to Statistical Learning"
 description: |
-  A short description of the post.
+  Embarking on an exploration into the realm of data science, I'm immersing myself in 'An Introduction to Statistical Learning with Applications in R' by James, G., Witten, D., Hastie, T., and Tibshirani, R. (2013). Focused on chapters 3 and 4, I'll meticulously replicate exercises within this enlightening book to uncover the secrets concealed within datasets.
 author:
-  - name: Unknown
+  - name: "Francisco Guzmán"
 date: 2023-11-14
-output:
+output: 
   distill::distill_article:
-    self_contained: false
+    toc: true
+    number_sections: true
+    toc_float: true
+    toc_collapsed: TRUE
+    toc_depth: 4
 ---
 
-
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+## 3.6 Lab: Linear Regression 
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+### 3.6.1 Libraries
+```{r}
+library(MASS)
+library(ISLR)
+```
+
+### 3.6.2 Simple Linear Regression
+```{r}
+names(Boston)
+```
+We will start by using the **lm()** function to fit a simple linear regression model, with $medv$ as the response and $lstat$ as the predictor. The basic syntax is **lm(y~x,data)**, where $y$ is the response, $x$ is the predictor, and data is the data set in which these two variables are kept.
+
+```{r}
+lm.fit=lm(medv~lstat, data=Boston)
+```
+
+For more detailed information, we use **summary(lm.fit)**.
+
+```{r}
+summary(lm.fit)
+coef(lm.fit)
+```
+
+In order to obtain a confidence interval for the coefficient estimates, we can use the **confint()** command.
+
+```{r}
+confint(lm.fit)
+```
+
+The **predict()** function can be used to produce confidence intervals and prediction intervals for the prediction of $medv$ for a given value of $lstat$.
+
+```{r}
+predict(lm.fit, data.frame(lstat=c(5,10 ,15)), interval = "confidence")
+predict(lm.fit ,data.frame(lstat=c(5,10 ,15)), interval = "prediction")
+```
+
+We will now plot $medv$ and $lstat$ along with the least squares regression
+line using the **plot()** and **abline()** functions.
+
+```{r}
+attach(Boston)
+plot(lstat, medv)
+abline(lm.fit)
+```
+
+Below we experiment with some additional settings for plotting lines and points. The **lwd=3** command causes the width of the regression line to be increased by a factor of 3; this works for the **plot()** and **lines()** functions also. We can also use the **pch** option to create different plotting symbols.
+
+```{r}
+plot(lstat, medv)
+abline (lm.fit, lwd =3)
+abline (lm.fit, lwd=3,col ="red")
+plot(lstat, medv, col="red")
+plot(lstat, medv, pch =20)
+plot(lstat, medv, pch ="+")
+plot(1:25,1:25, pch =1:25)
+```
+
+In general, **plot()** command will produce one plot at a time, and hitting *Enter* will generate the next plot. However, it is often convenient to view all four plots together. We can achieve this by using the **par()** function, which tells R to split the display screen into separate panels so that multiple plots can be viewed simultaneously. For example, **par(mfrow=c(2,2))** divides the plotting region into a 2 × 2 grid of panels.
+
+```{r}
+par(mfrow=c(2,2))
+plot(lm.fit)
+```
+
+Alternatively, we can compute the residuals from a linear regression fit using the **residuals()** function. The function **rstudent()** will return the studentized residuals, and we can use this function to plot the residuals against the fitted values.
+
+```{r}
+plot(predict (lm.fit), residuals (lm.fit))
+plot(predict (lm.fit), rstudent (lm.fit))
+```
+
+On the basis of the residual plots, there is some evidence of non-linearity.
+Leverage statistics can be computed for any number of predictors using the **hatvalues()** function.
+
+```{r}
+plot(hatvalues (lm.fit))
+which.max(hatvalues (lm.fit))
+```
+
+The **which.max()** function identifies the index of the largest element of a vector. In this case, it tells us which observation has the largest leverage
+statistic.
+
+
+### 3.6.3 Multiple Linear Regression
+
+In order to fit a multiple linear regression model using least squares, we again use the **lm()** function. The syntax **lm(y~x1+x2+x3)** is used to fit a model with three predictors, $x1$, $x2$, and $x3$. The **summary()** function now outputs the regression coefficients for all the predictors.
+
+```{r}
+lm.fit=lm(medv~lstat+age, data=Boston)
+summary (lm.fit)
+```
+
+The **Boston** data set contains 13 variables, and so it would be cumbersome
+to have to type all of these in order to perform a regression using all of the
+predictors. Instead, we can use the following short-hand:
+
+```{r}
+lm.fit=lm(medv~.,data=Boston)
+summary (lm.fit)
+```
+
+The **vif()** function, part of the **car** package, can be used to compute variance inflation factors. 
+
+```{r, include=F}
+library(car)
+```
+
+```{r}
+vif(lm.fit)
+```
+
+The following syntax results in a regression using all predictors except age.
+
+```{r}
+lm.fit1=lm(medv~.-age, data=Boston)
+summary(lm.fit1)
+```
+
+Alternatively, the **update()** function can be used.
+
+```{r}
+lm.fit1=update(lm.fit, ~.-age)
+```
+
+
+### 3.6.4 Interaction Terms
+
+It is easy to include interaction terms in a linear model using the **lm()** function. The syntax **lstat:black** tells R to include an interaction term between $lstat$ and $black$. The syntax **lstat$*$age** simultaneously includes $lstat$, $age$, and the interaction term $lstat×age$ as predictors; it is a shorthand for
+**lstat+age+lstat:age**.
+
+```{r}
+summary (lm(medv~lstat*age, data=Boston))
+```
+
+
+### 3.6.5 Non-linear Transformations of the Predictors
+
+The **lm()** function can also accommodate non-linear transformations of the predictors. For instance, given a predictor $X$, we can create a predictor $X^2$ using **I(X^2)**. The function **I()** is needed since the **^** has a special meaning in a formula; wrapping as we do allows the standard usage in R, which is to raise *$X$* to the power $2$. We now perform a regression of $medv$ onto $lstat$ and $lstat^2$.
+
+```{r}
+lm.fit2 = lm(medv ~ lstat + I(lstat^2))
+summary(lm.fit2)
+```
+
+The near-zero p-value associated with the quadratic term suggests that
+it leads to an improved model. We use the **anova()** function to further quantify the extent to which the quadratic fit is superior to the linear fit.
+
+```{r}
+lm.fit = lm(medv~lstat)
+anova(lm.fit, lm.fit2)
+```
+
+Here Model 1 represents the linear submodel containing only one predictor, $lstat$, while Model 2 corresponds to the larger quadratic model that has two predictors, $lstat$ and $lstat^2$. The **anova()** function performs a hypothesis test comparing the two models. The null hypothesis is that the two models fit the data equally well, and the alternative hypothesis is that the full model is superior. Here the F-statistic is 135 and the associated p-value is virtually zero. This provides very clear evidence that the model containing the predictors $lstat$ and $lstat^2$ is far superior to the model that only contains the predictor $lstat$. This is not surprising, since earlier we saw evidence for non-linearity in the relationship between $medv$ and $lstat$. If we type
+
+```{r}
+par(mfrow=c(2,2))
+plot(lm.fit2)
+```
+
+then we see that when the $lstat^2$ term is included in the model, there is
+little discernible pattern in the residuals.
+
+In order to create a cubic fit, we can include a predictor of the form
+**I(X^3)**. However, this approach can start to get cumbersome for higher-order polynomials. A better approach involves using the **poly()** function to create the polynomial within **lm()**. For example, the following command produces a fifth-order polynomial fit:
+
+```{r}
+lm.fit5=lm(medv ~ poly(lstat ,5))
+summary (lm.fit5)
+```
+
+This suggests that including additional polynomial terms, up to fifth order,
+leads to an improvement in the model fit! However, further investigation of
+the data reveals that no polynomial terms beyond fifth order have significant p-values in a regression fit.
+
+Of course, we are in no way restricted to using polynomial transformations of the predictors. Here we try a log transformation
+
+```{r}
+ summary(lm(medv~log(rm),data=Boston))
+```
+
+
+### 3.6.6 Qualitative Predictors
+
+We will now examine the **Carseats** data, which is part of the **ISLR** library. We will attempt to predict $Sales$ (child car seat sales) in 400 locations based on a number of predictors.
+
+```{r}
+names(Carseats)
+```
+
+The **Carseats** data includes qualitative predictors such as $Shelveloc$, an indicator of the quality of the shelving location —that is, the space within
+a store in which the car seat is displayed— at each location. The predictor $Shelveloc$ takes on three possible values, *Bad*, *Medium*, and *Good*.
+
+Given a qualitative variable such as $Shelveloc$, R generates dummy variables
+automatically. Below we fit a multiple regression model that includes some
+interaction terms.
+
+```{r}
+lm.fit=lm(Sales~.+Income:Advertising + Price:Age,data=Carseats)
+summary (lm.fit)
+```
+
+The **contrasts()** function returns the coding that R uses for the dummy variables.
+
+```{r}
+attach(Carseats)
+contrasts(ShelveLoc)
+```
+
+R has created a $ShelveLocGood$ dummy variable that takes on a value of
+1 if the shelving location is good, and 0 otherwise. It has also created a
+$ShelveLocMedium$ dummy variable that equals 1 if the shelving location is
+medium, and 0 otherwise. A bad shelving location corresponds to a zero
+for each of the two dummy variables. The fact that the coefficient for $ShelveLocGood$ in the regression output is positive indicates that a good
+shelving location is associated with high sales (relative to a bad location).
+And $ShelveLocMedium$ has a smaller positive coefficient, indicating that a
+medium shelving location leads to higher sales than a bad shelving location
+but lower sales than a good shelving location.
+
+
+### 3.6.7 Writing Functions
+
+As we have seen, R comes with many useful functions, and still more functions are available by way of R libraries. However, we will often be interested in performing an operation for which no function is available. In this setting, we may want to write our own function. For instance, below we provide a simple function that reads in the **ISLR** and **MASS** libraries, called **LoadLibraries()**.
+
+```{r}
+LoadLibraries = function(){
+  library(ISLR)
+  library(MASS)
+  print("The libraries have been loaded.")
+ }
+```
+
+Now if we type in **LoadLibraries**, R will tell us what is in the function.
+
+```{r}
+LoadLibraries
+```
+
+If we call the function, the libraries are loaded in and the print statement
+is output.
+
+```{r}
+LoadLibraries()
+```
+
+
+## 4.6 Lab
+
+### 4.6.1 The Stock Market Data
+
+```{r}
+library(ISLR)
+str(Smarket)
+summary(Smarket)
+cor(Smarket [,-9])
+
+```
+
+```{r}
+attach(Smarket)
+plot(Volume)
+
+```
+
+### 4.6.2 Logistic Regression
+
+```{r}
+glm.fit = glm(Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + Volume,
+data = Smarket, family = binomial)
+summary(glm.fit)
+coef(glm.fit)
+summary(glm.fit)$coef
+summary(glm.fit)$coef[,4] # Para obtener sólo los p-values
+
+```
+Probabilidad de que el mercado vaya al alza.
+
+```{r}
+glm.probs = predict(glm.fit, type = "response")
+glm.probs[1:10]
+contrasts(Direction)
+ 
+```
+
+```{r}
+glm.pred = rep("Down", 1250)
+glm.pred[glm.probs >.5] = "Up"
+table(glm.pred, Direction)
+
+```
+Los elementos de las diagonales indican predicciones correctas, el resto son predicciones incorrectas.
+
+```{r}
+mean(glm.pred==Direction) #Predicciones correctas
+```
+
+Creamos un vector para las obs desde 2001 a 2004, a continuación, utilizaremos este vector para crear un conjunto de datos para las observaciones de 2005.
+
+```{r}
+train = (Year < 2005)
+Smarket.2005 = Smarket[!train,]
+dim(Smarket.2005)
+Direction.2005 = Direction[!train]
+ 
+```
+
+```{r}
+glm.fit= glm (Direction ~ Lag1 + Lag2 + Lag3 + Lag4 + Lag5 + Volume,
+              data = Smarket, family = binomial, subset = train)
+glm.probs = predict(glm.fit, Smarket.2005, type = "response")
+
+```
+
+```{r}
+glm.pred = rep("Down", 252)
+glm.pred[glm.probs >.5]= "Up"
+table(glm.pred, Direction.2005)
+mean(glm.pred == Direction.2005)
+mean(glm.pred != Direction.2005)
+
+```
+
+Ajustamos la regresión logística utilizando sólo $Lag1$ y $Lag2$, que parecían tener el mayor poder de predicción en el modelo de regresión logística original.
+
+```{r}
+glm.fit = glm(Direction ~ Lag1 + Lag2, data = Smarket, family = binomial,
+            subset=train)
+glm.probs = predict(glm.fit, Smarket.2005, type= "response")
+glm.pred = rep("Down", 252)
+glm.pred[glm.probs >.5] = "Up"
+table(glm.pred, Direction.2005)
+mean(glm.pred==Direction.2005)
+
+```
+
+```{r}
+predict(glm.fit, newdata = data.frame(Lag1=c(1.2 ,1.5),
+                                      Lag2=c(1.1,-0.8)),
+        type="response")
+
+```
+### 4.6.3 Linear Discriminant Analysis
 
 

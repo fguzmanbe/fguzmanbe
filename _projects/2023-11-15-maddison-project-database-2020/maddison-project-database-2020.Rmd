@@ -20,11 +20,6 @@ categories:
 draft: false
 ---
 
-<style>
-body {
-text-align: justify}
-</style>
-
 # Libraries 
   
 ```{r}
