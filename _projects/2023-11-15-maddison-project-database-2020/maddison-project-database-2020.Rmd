@@ -58,7 +58,7 @@ unique(mpd2020[c("countrycode", "country")])
 ## summary()
 With the following command, we are interested in seeing the period that will be covered in the graph, considering the available data for Chile.
 
-```{r, results='hide'}
+```{r}
 mpd2020 %>% 
   filter(countrycode == "CHL") %>%
   summary()
@@ -141,6 +141,8 @@ fig
 
 # References 
 * <a href="https://ggplot2.tidyverse.org/reference/index.html" target="_blank">ggplot2</a>
-  * <a href="https://plotly.com/ggplot2/" target="_blank">ggplotly</a>
-  * <a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020" target="_blank">Maddison Project Database 2020</a>
+
+* <a href="https://plotly.com/ggplot2/" target="_blank">ggplotly</a>
+
+* <a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020" target="_blank">Maddison Project Database 2020</a>
   
