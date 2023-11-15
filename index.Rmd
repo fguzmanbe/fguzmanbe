@@ -17,7 +17,7 @@ site: distill::distill_website
  
 ## Bio
 
-Welcome to my Blog! I'm Francisco, a data enthusiast embarking on my journey to secure my first professional experience as a data analyst. In this space, I'll be sharing the skills I've honed as I navigate the fascinating realm of data analysis. Join me on this exciting journey, where we'll not only delve into data and trends but also explore aspects of my life, passions such as traveling, and experiences that have shaped my path. I invite you to explore my page and get to know more about me and my interests. I hope you enjoy the adventure as much as I do! Let's discover the potential of data and a bit more about my life together!
+Welcome to my website! I'm Francisco, a data enthusiast embarking on my journey to secure my first professional experience as a data analyst. In this space, I'll be sharing the skills I've honed as I navigate the fascinating realm of data analysis. Join me on this exciting journey, where we'll not only delve into data and trends but also explore aspects of my life, passions such as traveling, and experiences that have shaped my path. I invite you to explore my page and get to know more about me and my interests. I hope you enjoy the adventure as much as I do! Let's discover the potential of data and a bit more about my life together!
 
 ## Education
 
