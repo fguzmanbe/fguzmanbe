@@ -19,7 +19,7 @@ site: distill::distill_website
 
 Hello! I'm Francisco, a passionate graduate in Business Engineering from the University of Chile in 2021. After dedicating that year to saving, I decided to embark on an exciting adventure in February of the following year, landing in beautiful Portugal.
 
-My story in this land began as a [volunteer](../_travels/2023-11-14-faro/faro.html) in a hostel, and over time, I found my way working in the housekeeping area until October 2022. During this period, I had the opportunity to meet incredible people and gradually immerse myself in the rich Portuguese culture.
+My story in this land began as a [volunteer](../docs/travels/2023-11-14-faro/index.html) in a hostel, and over time, I found my way working in the housekeeping area until October 2022. During this period, I had the opportunity to meet incredible people and gradually immerse myself in the rich Portuguese culture.
 
 In search of new challenges, I made the decision with a group of friends to move to Coímbra in October 2022, where I currently call home. Here, I took on the role of Customer Service Representative at Foundever for the Airbnb project, from December 2022 to October 2023.
 

@@ -3533,7 +3533,16 @@ Miscellaneous
 </div>
 <style>
 body {
-text-align: justify}
+text-align: justify;
+}
+h1, h2, h3, h4, h5, h6 {
+text-align: left; 
+}
+
+
+.toc {
+text-align: left; 
+}
 </style>
 <h1 id="libraries">Libraries</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -3551,7 +3560,7 @@ text-align: justify}
 <p>The <strong>WDIsearch()</strong> command is used to search for databases using keywords. In this case, we’re interested in comparing the real GDP per capita of Chile, measured in PPP, so our keywords will be <em>gdp</em>, <em>ppp</em> and <em>constant</em>. This translates to the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">&#39;gdp.*ppp.*constant&#39;</span><span class="op">)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">&#39;gdp.*ppp.*constant&#39;</span><span class="op">)</span></span></code></pre>
 </div>
 <pre><code>                 indicator
 717     6.0.GDPpc_constant
@@ -3571,7 +3580,7 @@ text-align: justify}
 <p>With the following command, we can get the database and apply previous filters.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span></span>
 <span>  country <span class="op">=</span> <span class="st">&quot;all&quot;</span>,</span>
 <span>  indicator <span class="op">=</span> <span class="st">&quot;NY.GDP.PCAP.PP.KD&quot;</span>,</span>
 <span>  start <span class="op">=</span> <span class="fl">1990</span>,</span>
@@ -3686,9 +3695,9 @@ Show code
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.rforge.net/Cairo/">Cairo</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">&#39;gdp.*ppp.*constant&#39;</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDIsearch.html">WDIsearch</a></span><span class="op">(</span><span class="st">&#39;gdp.*ppp.*constant&#39;</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://vincentarelbundock.github.io/WDI/reference/WDI.html">WDI</a></span><span class="op">(</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/WDI/man/WDI.html">WDI</a></span><span class="op">(</span></span>
 <span>  country <span class="op">=</span> <span class="st">&quot;all&quot;</span>,</span>
 <span>  indicator <span class="op">=</span> <span class="st">&quot;NY.GDP.PCAP.PP.KD&quot;</span>,</span>
 <span>  start <span class="op">=</span> <span class="fl">1990</span>,</span>

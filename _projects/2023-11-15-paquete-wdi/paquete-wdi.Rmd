@@ -22,8 +22,19 @@ draft: false
 ---
 
 <style>
-body {
-text-align: justify}
+  body {
+    text-align: justify;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left; /* Adjust as needed */
+  }
+
+  /* For table of contents (toc) */
+  /* Assuming your toc class is toc */
+  .toc {
+    text-align: left; /* Adjust as needed */
+  }
 </style>
 
 # Libraries 
